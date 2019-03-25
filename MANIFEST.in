@@ -1,0 +1,2 @@
+include LICENSE
+include aiida_structure/schema/symmetry.json

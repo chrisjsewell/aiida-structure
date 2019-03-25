@@ -1,0 +1,22 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "additional kind data",
+    "type": "object",
+    "required": [
+        "kind_names"
+    ],
+    "additionalProperties": false,
+    "properties": {
+        "kind_names": {
+            "type": "array",
+            "minimum": 1,
+            "items": {"type": "string"}
+        }
+    },
+    "patternProperties": {
+        ".+": {
+            "type": "array"
+        }
+    }
+
+}

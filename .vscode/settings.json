@@ -1,0 +1,13 @@
+{
+    "editor.rulers": [80],
+    "python.pythonPath": "/anaconda/envs/aiida_0_12_2_fes1/bin/python",
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.linting.enabled": true,
+    "python.unitTest.pyTestArgs": [
+        "."
+    ],
+    "python.unitTest.unittestEnabled": false,
+    "python.unitTest.nosetestsEnabled": false,
+    "python.unitTest.pyTestEnabled": true
+}

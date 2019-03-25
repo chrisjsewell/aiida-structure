@@ -1,0 +1,126 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "structure symmetry settings",
+    "description": "see https://atztogo.github.io/spglib/definition.html for definitions of each field",
+    "type": "object",
+    "required": [
+        "space_group",
+        "operations"
+    ],
+    "additionalProperties": false,
+    "properties": {
+        "symmetry_program": {
+            "description": "the program used to compute the symmetry",
+            "type": "string",
+            "default": "spglib"
+        },
+        "symmetry_version": {
+            "description": "the version of the program used to compute the symmetry",
+            "type": "string"
+        },
+        "computation_function": {
+            "description": "the function (or class) used to compute the symmetry",
+            "type": "string"
+        },
+        "computation_version": {
+            "description": "the version of the function used to compute the symmetry",
+            "type": "string"
+        },
+        "symprec": {
+            "description": "the precision with which symmetry is computed (relative)",
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "default": 1e-5
+        },
+        "angle_tolerance": {
+            "description": "angular tolerance (degrees)",
+            "type": [
+                "number",
+                "null"
+            ],
+            "exclusiveMinimum": 0,
+            "default": null
+        },
+        "space_group": {
+            "description": "Space group number (international)",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 230,
+            "default": 1
+        },
+        "crystal_type": {
+            "description": "the crystal type",
+            "type": "string",
+            "enum": [
+                "triclinic",
+                "monoclinic",
+                "orthorhombic",
+                "tetragonal",
+                "hexagonal",
+                "cubic"
+            ],
+            "default": "triclinic"
+        },
+        "p2c_transform": {
+            "description": "primitive to crystallographic transformation",
+            "type": "array",
+            "minimum": 3,
+            "maximum": 3,
+            "items": {
+                "type": "array",
+                "minimum": 3,
+                "maximum": 3,
+                "items": {
+                    "type": "number"
+                }
+            },
+            "default": [
+                [
+                    1.0000,
+                    0.0000,
+                    0.0000
+                ],
+                [
+                    0.0000,
+                    1.0000,
+                    0.0000
+                ],
+                [
+                    0.0000,
+                    0.0000,
+                    1.0000
+                ]
+            ]
+        },
+        "operations": {
+            "description": "symmetry operations to use (in the fractional basis)",
+            "type": "array",
+            "items": {
+                "description": "each item should be a list of [r00,r10,r20,r01,r11,r21,r02,r12,r22,t0,t1,t2]",
+                "type": "array",
+                "minItems": 12,
+                "maxItems": 12,
+                "items": {
+                    "type": "number"
+                }
+            },
+            "uniqueItems": true,
+            "default": [
+                [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            ]
+        }
+    }
+}
